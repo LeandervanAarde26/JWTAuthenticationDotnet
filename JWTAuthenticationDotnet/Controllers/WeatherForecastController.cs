@@ -1,33 +1,30 @@
+using System.Security.Claims;
+using JWTAuthenticationDotnet.Database;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace JWTAuthenticationDotnet.Controllers
-{
+namespace JWTAuthenticationDotnet.Controllers;
     [ApiController]
-    [Route("[controller]")]
+    [Route("")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
-
-        [HttpGet(Name = "GetWeatherForecast")]
-        public IEnumerable<WeatherForecast> Get()
+        [Authorize]
+        [HttpGet("me")]
+        public async Task<IActionResult> GetUser()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+     
+            var claims = HttpContext.User;
+            string userId = claims.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
+            var user = await _context.Users.FindAsync(userId);
+            return Ok(user);
         }
     }
-}
