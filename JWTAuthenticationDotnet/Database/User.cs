@@ -6,3 +6,5 @@ public class User : IdentityUser
 {
     public string? Initials { get; set; }
 }
+
+// Consider using the vertical Slice Architecture
