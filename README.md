@@ -53,6 +53,7 @@ In order to compile this project solution, it is *recommended* that you use one 
       dotnet ef database update
    ```
 6. Run the solution and Add data in order to complete CRUD Operations.
+7. ***NOTE*** : This approach creates a seperate schema called `identity` as opposed to the default `public` schema. 
 
 ## Contributing
 For any additions to the project, contact the repo owner [LeandervanAarde](mailto:Leander.vaonline@gmail.com)
@@ -68,7 +69,7 @@ The content should include a description, references (to the ticket or design sp
 
 Please engage in your pull requests and assess those that belong to others. A good reference for how to do this is https://hugooodias.medium.com/the-anatomy-of-a-perfect-pull-request-567382bb6067.
 
-***NOTE*** : This approach creates a seperate schema called `identity` as opposed to the default `public` schema. 
+
 
 
 ## License
