@@ -2,6 +2,7 @@ using System.Security.Claims;
 using JWTAuthenticationDotnet.Database;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace JWTAuthenticationDotnet.Controllers;
     [ApiController]
@@ -26,5 +27,13 @@ namespace JWTAuthenticationDotnet.Controllers;
             string userId = claims.Claims.First(c => c.Type == ClaimTypes.NameIdentifier).Value;
             var user = await _context.Users.FindAsync(userId);
             return Ok(user);
+        }
+
+        [Authorize]
+        [HttpGet("all")]
+        public async Task<IActionResult> GetUsers()
+        {
+            var users = await _context.Users.ToListAsync();
+            return Ok(users);
         }
     }

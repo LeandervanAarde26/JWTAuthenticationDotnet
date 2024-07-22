@@ -15,7 +15,11 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddAuthorization();
-builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme)
+builder.Services.AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = IdentityConstants.ApplicationScheme;
+        options.DefaultChallengeScheme = IdentityConstants.ApplicationScheme;
+    })
     .AddCookie(IdentityConstants.ApplicationScheme)
     .AddBearerToken(IdentityConstants.BearerScheme);
 
@@ -41,6 +45,6 @@ app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapControllers().RequireAuthorization();
+app.MapControllers();
 app.MapIdentityApi<User>();
 app.Run();
