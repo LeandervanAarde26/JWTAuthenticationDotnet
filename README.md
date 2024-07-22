@@ -68,7 +68,8 @@ The content should include a description, references (to the ticket or design sp
 
 Please engage in your pull requests and assess those that belong to others. A good reference for how to do this is https://hugooodias.medium.com/the-anatomy-of-a-perfect-pull-request-567382bb6067.
 
-## Deployments
+***NOTE*** : This approach creates a seperate schema called `identity` as opposed to the default `public` schema. 
+
 
 ## License
 Distributed under the MIT License. See `LICENSE` for more information.
@@ -82,10 +83,10 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - Dotnet 8 Authentication and Authorization [Microsoft](https://devblogs.microsoft.com/dotnet/whats-new-with-identity-in-dotnet-8/) || [Milan Jovanovic](https://www.youtube.com/watch?v=S0RSsHKiD6Y)
 
 ## Additional information
-- Database default ERD when including Identity:
-- ![ERD](JWTAuthenticationDotnet/images/ERD.png?raw=true "ERD")
-- Default routes added when including Identity:
-- - ![Routes](JWTAuthenticationDotnet/images/routes.png?raw=true "Routes")
+### Database default ERD when including Identity:
+![ERD](JWTAuthenticationDotnet/images/ERD.png?raw=true "ERD")
+### Default routes added when including Identity:
+![Routes](JWTAuthenticationDotnet/images/routes.png?raw=true "Routes")
 
 
 
