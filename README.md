@@ -85,6 +85,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - Database default ERD when including Identity:
 - ![ERD](JWTAuthenticationDotnet/images/ERD.png?raw=true "ERD")
 - Default routes added when including Identity:
+- - ![Routes](JWTAuthenticationDotnet/images/routes.png?raw=true "Routes")
 
 
 
