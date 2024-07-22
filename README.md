@@ -1,5 +1,5 @@
 
-# ASP.NET COre (.NET 8) Authentication with MS Identity. 
+# ASP.NET CORE (.NET 8) Authentication with MS Identity. 
 
 
 An application leveraging C# `dotnet` to provide Authentication and Authorization to a application. 
